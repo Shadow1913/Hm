@@ -1,0 +1,2184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨MOOD BOOSTER ✨</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff6b9d;
+            --secondary: #9d4edd;
+            --accent: #00bbf9;
+            --gradient: linear-gradient(135deg, #ff6b9d 0%, #9d4edd 50%, #00bbf9 100%);
+            --neon-glow: 0 0 20px rgba(255, 107, 157, 0.5);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 100%);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* Enhanced Background */
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 100%);
+            z-index: -10;
+        }
+        
+        /* Enhanced Particles */
+        .particles-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -5;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 50%;
+            opacity: 0.4;
+            animation: floatParticle linear infinite;
+            box-shadow: 0 0 10px currentColor;
+        }
+        
+        @keyframes floatParticle {
+            0% { transform: translateY(100vh) translateX(0) rotate(0deg); }
+            100% { transform: translateY(-100vh) translateX(20px) rotate(180deg); }
+        }
+        
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Enhanced Header with Glitch Effect */
+        .header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            position: relative;
+        }
+        
+        .glitch-title {
+            font-size: 4rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(157, 78, 221, 0.5);
+            animation: gentleGlow 3s infinite alternate;
+            position: relative;
+        }
+        
+        .glitch-title::after {
+            content: attr(data-text);
+            position: absolute;
+            left: 2px;
+            top: 0;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            z-index: -1;
+            animation: glitch 3s infinite;
+        }
+        
+        @keyframes glitch {
+            0%, 100% { transform: translate(0); opacity: 0.8; }
+            10% { transform: translate(-2px, -2px); opacity: 0.6; }
+            20% { transform: translate(2px, 2px); opacity: 0.9; }
+            30% { transform: translate(-1px, 1px); opacity: 0.7; }
+            40% { transform: translate(1px, -1px); opacity: 0.8; }
+            50% { transform: translate(-1px, 2px); opacity: 0.6; }
+            60% { transform: translate(2px, -1px); opacity: 0.9; }
+            70% { transform: translate(-2px, 1px); opacity: 0.7; }
+            80% { transform: translate(1px, 1px); opacity: 0.8; }
+            90% { transform: translate(-1px, -1px); opacity: 0.6; }
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        /* HEART COUNTER SECTION - Enhanced */
+        .heart-section {
+            text-align: center;
+            padding: 30px;
+            margin: 20px auto 40px;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            border: 2px solid rgba(255, 107, 157, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            animation: gentleFloat 6s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .heart-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,107,157,0.1) 0%, transparent 70%);
+            z-index: -1;
+        }
+        
+        @keyframes gentleFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .secret-text {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(255, 107, 157, 0.5);
+        }
+        
+        .heart-counter-box {
+            display: inline-flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px 40px;
+            background: linear-gradient(135deg, rgba(255,107,157,0.2), rgba(157,78,221,0.2));
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .heart-counter-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.6s;
+        }
+        
+        .heart-counter-box:hover::before {
+            left: 100%;
+        }
+        
+        .heart-counter-box:hover {
+            background: linear-gradient(135deg, rgba(255,107,157,0.3), rgba(157,78,221,0.3));
+            border-color: var(--primary);
+            transform: scale(1.08) rotate(2deg);
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4),
+                        0 0 40px rgba(255, 107, 157, 0.2);
+        }
+        
+        .heart-counter-box:active {
+            transform: scale(0.95);
+        }
+        
+        .heart-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            animation: heartbeat 2s infinite;
+            filter: drop-shadow(0 0 10px rgba(255, 107, 157, 0.8));
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.05); }
+        }
+        
+        .counter-text {
+            font-size: 2.2rem;
+            font-weight: bold;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(255, 107, 157, 0.5);
+        }
+        
+        /* Enhanced 3D HEART HOVER CARD - FIXED BACK TEXT */
+        .heart-hover-card {
+            perspective: 1000px;
+            width: 280px;
+            height: 280px;
+            margin: 40px auto;
+            cursor: pointer;
+            position: relative;
+            animation: gentleFloat 8s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+        
+        .heart-hover-card-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .heart-hover-card:hover .heart-hover-card-inner {
+            transform: rotateY(180deg) scale(1.05);
+        }
+        
+        .heart-hover-front, .heart-hover-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
+                        0 0 60px rgba(255, 107, 157, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .heart-hover-front {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+        
+        .heart-hover-back {
+            background: var(--gradient);
+            transform: rotateY(180deg);
+            color: white;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem; /* Reduced font size */
+            line-height: 1.3; /* Adjusted line height */
+            padding: 20px; /* Adjusted padding */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .heart-hover-back p {
+            margin: 5px 0; /* Reduced margin */
+            font-size: 1.7rem; /* Adjusted font size */
+            line-height: 1.2; /* Tighter line height */
+        }
+        
+        .heart-hover-icon {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
+        }
+        
+        .heart-hover-text {
+            font-size: 1.2rem; /* Reduced font size */
+            font-weight: 600;
+            margin-top: 15px;
+            opacity: 0.9;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+        }
+        
+        /* Enhanced Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            padding: 40px 20px;
+        }
+        
+        .card {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.05) 0%,
+                rgba(255, 255, 255, 0.02) 100%);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            min-height: 320px;
+            animation: cardAppear 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+            transform-origin: left;
+        }
+        
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+        .card:nth-child(5) { animation-delay: 0.5s; }
+        .card:nth-child(6) { animation-delay: 0.6s; }
+        
+        @keyframes cardAppear {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4),
+                        0 0 80px rgba(255, 107, 157, 0.3);
+            border-color: var(--primary);
+        }
+        
+        .card-title {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Enhanced Mood Tracker */
+        .mood-tracker {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .mood-question {
+            font-size: 1.3rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(255, 107, 157, 0.5);
+        }
+        
+        .mood-options {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .mood-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            font-size: 2.2rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mood-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, 
+                rgba(255,255,255,0.2) 0%,
+                transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .mood-btn:hover::before {
+            opacity: 1;
+        }
+        
+        .mood-btn:hover {
+            transform: scale(1.15) rotate(10deg);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3),
+                        0 0 30px currentColor;
+        }
+        
+        .mood-btn.active {
+            background: var(--gradient);
+            transform: scale(1.2);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4),
+                        0 0 40px rgba(255, 107, 157, 0.5);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1.2); }
+            50% { transform: scale(1.25); }
+        }
+        
+        .mood-response {
+            min-height: 120px;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.05) 0%,
+                rgba(255, 255, 255, 0.02) 100%);
+            border-radius: 20px;
+            padding: 20px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        /* Enhanced Notes */
+        .message-bubble {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.08) 0%,
+                rgba(255, 255, 255, 0.04) 100%);
+            border-radius: 20px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 5px solid var(--primary);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .message-bubble::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.6s;
+        }
+        
+        .message-bubble:hover::before {
+            left: 100%;
+        }
+        
+        .message-bubble:hover {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.12) 0%,
+                rgba(255, 255, 255, 0.06) 100%);
+            transform: translateX(10px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Enhanced Game Area */
+        .game-area {
+            height: 200px;
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.2) 0%,
+                rgba(0, 0, 0, 0.1) 100%);
+            border-radius: 20px;
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .game-object {
+            position: absolute;
+            font-size: 2.5rem;
+            cursor: pointer;
+            user-select: none;
+            transition: transform 0.3s;
+            filter: drop-shadow(0 0 10px currentColor);
+            animation: objectGlow 2s infinite alternate;
+        }
+        
+        @keyframes objectGlow {
+            from { filter: drop-shadow(0 0 10px currentColor); }
+            to { filter: drop-shadow(0 0 20px currentColor); }
+        }
+        
+        .game-object:hover {
+            transform: scale(1.3) rotate(15deg);
+        }
+        
+        .game-controls {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        /* Enhanced Speed Controls */
+        .speed-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 15px 0;
+            justify-content: center;
+        }
+        
+        .speed-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 25px;
+            padding: 8px 20px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .speed-btn.active {
+            background: var(--gradient);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .speed-btn:hover {
+            transform: scale(1.08);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        /* Enhanced Action Buttons */
+        .action-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            border-radius: 50px;
+            padding: 15px 30px;
+            color: white;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .action-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s;
+        }
+        
+        .action-btn:hover::before {
+            left: 100%;
+        }
+        
+        .action-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3),
+                        0 0 40px rgba(255, 107, 157, 0.4);
+        }
+        
+        /* UPDATED Celebration Button - Changed text */
+        .celebration-btn {
+            background: var(--gradient);
+            border: none;
+            border-radius: 60px;
+            padding: 25px 50px;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: block;
+            margin: 60px auto;
+            font-weight: 700;
+            letter-spacing: 2px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+            animation: gentleGlow 2s infinite alternate;
+        }
+        
+        .celebration-btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            transform: scale(0);
+            transition: transform 0.6s;
+        }
+        
+        .celebration-btn:hover::before {
+            transform: scale(1);
+        }
+        
+        .celebration-btn:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5),
+                        0 0 80px rgba(255, 107, 157, 0.6);
+            letter-spacing: 3px;
+        }
+        
+        .celebration-btn:hover::after {
+            content: '😊';
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3rem;
+            animation: fallDown 1.5s linear infinite;
+        }
+        
+        @keyframes fallDown {
+            0% { transform: translateX(-50%) translateY(-40px) rotate(0deg) scale(0); opacity: 0; }
+            20% { opacity: 1; transform: translateX(-50%) translateY(-20px) rotate(180deg) scale(1); }
+            100% { transform: translateX(-50%) translateY(100px) rotate(360deg) scale(0); opacity: 0; }
+        }
+        
+        /* Enhanced Heart Click Challenge */
+        .heart-click-section {
+            text-align: center;
+            padding: 25px;
+        }
+        
+        .click-challenge-heart {
+            font-size: 6rem;
+            cursor: pointer;
+            display: inline-block;
+            transition: all 0.3s;
+            animation: heartbeat 2s infinite, gentleGlow 3s infinite alternate;
+            margin: 25px 0;
+            filter: drop-shadow(0 0 20px rgba(255, 107, 157, 0.8));
+        }
+        
+        .click-challenge-heart:hover {
+            transform: scale(1.3) rotate(15deg);
+        }
+        
+        .click-challenge-info {
+            font-size: 1.3rem;
+            margin: 20px 0;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 600;
+        }
+        
+        /* Enhanced FLOWERS ANIMATION FOR 8 CLICKS */
+        .flower-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        
+        .flower {
+            position: absolute;
+            font-size: 50px;
+            opacity: 0;
+            animation: flowerBloom 5s ease-out forwards;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+        }
+        
+        @keyframes flowerBloom {
+            0% { 
+                transform: scale(0) rotate(0deg); 
+                opacity: 0; 
+            }
+            20% { 
+                transform: scale(1.2) rotate(180deg); 
+                opacity: 1; 
+                filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.8));
+            }
+            80% { 
+                transform: scale(1) rotate(360deg); 
+                opacity: 0.9; 
+                filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.6));
+            }
+            100% { 
+                transform: scale(0.8) rotate(540deg); 
+                opacity: 0; 
+                filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+            }
+        }
+        
+        /* Enhanced Footer */
+        .footer {
+            text-align: center;
+            padding: 60px 20px;
+            margin-top: 60px;
+            border-top: 2px solid rgba(255, 255, 255, 0.15);
+            background: linear-gradient(to bottom, 
+                transparent 0%,
+                rgba(0, 0, 0, 0.3) 100%);
+            border-radius: 40px 40px 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: radial-gradient(circle at center, 
+                rgba(255,107,157,0.1) 0%,
+                transparent 70%);
+            pointer-events: none;
+        }
+        
+        .footer-icons {
+            font-size: 3rem;
+            margin: 40px 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .footer-icons i {
+            animation: float 3s ease-in-out infinite;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .footer-icons i:hover {
+            transform: scale(1.3) rotate(15deg);
+            color: var(--primary);
+            filter: drop-shadow(0 0 15px currentColor);
+        }
+        
+        /* Enhanced Floating Emojis */
+        .floating-emoji {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1000;
+            font-size: 30px;
+            opacity: 0;
+            animation: floatUp 3s ease-in forwards;
+            filter: drop-shadow(0 0 10px currentColor);
+        }
+        
+        @keyframes floatUp {
+            0% { 
+                transform: translateY(100vh) rotate(0deg) scale(0.5); 
+                opacity: 1; 
+            }
+            50% { 
+                transform: translateY(50vh) rotate(180deg) scale(1); 
+                opacity: 0.8; 
+            }
+            100% { 
+                transform: translateY(-100px) rotate(360deg) scale(0.5); 
+                opacity: 0; 
+            }
+        }
+        
+        /* Enhanced Falling Celebration */
+        .falling-celebration {
+            position: fixed;
+            top: -50px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        
+        .falling-item {
+            position: absolute;
+            font-size: 35px;
+            animation: falling linear infinite;
+            filter: drop-shadow(0 0 10px currentColor);
+        }
+        
+        @keyframes falling {
+            0% { 
+                transform: translateY(-100px) rotate(0deg) scale(0.5); 
+                opacity: 0; 
+            }
+            10% { 
+                transform: translateY(0) rotate(90deg) scale(1); 
+                opacity: 1; 
+            }
+            100% { 
+                transform: translateY(100vh) rotate(360deg) scale(0.5); 
+                opacity: 0; 
+            }
+        }
+        
+        /* Enhanced Responsive */
+        @media (max-width: 768px) {
+            .glitch-title { font-size: 2.5rem; }
+            .grid { grid-template-columns: 1fr; gap: 25px; padding: 25px 15px; }
+            .card { min-height: auto; padding: 25px; }
+            .heart-hover-card { width: 250px; height: 250px; }
+            .heart-hover-back { font-size: 1.5rem; padding: 15px; }
+            .heart-hover-back p { font-size: 1.4rem; line-height: 1.1; }
+            .celebration-btn { padding: 20px 40px; font-size: 1.3rem; }
+            .heart-section { padding: 25px; margin: 25px auto; }
+            .click-challenge-heart { font-size: 4.5rem; }
+        }
+        
+        /* Enhanced Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            30% { transform: scale(1.15); }
+            60% { transform: scale(0.95); }
+        }
+        
+        .bounce { animation: bounce 0.4s; }
+        
+        @keyframes scoreCelebration {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.5); }
+        }
+        
+        .score-celebration { animation: scoreCelebration 0.6s; }
+        
+        @keyframes gentleGlow {
+            0%, 100% { 
+                filter: drop-shadow(0 0 10px rgba(255, 107, 157, 0.5));
+            }
+            50% { 
+                filter: drop-shadow(0 0 25px rgba(255, 107, 157, 0.8));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background -->
+    <div class="bg-gradient"></div>
+    <div class="particles-container" id="particles"></div>
+    
+    <div class="container">
+        <!-- Header -->
+        <header class="header fade-in">
+            <!-- UPDATED: Fixed the glitch title text -->
+            <h1 class="glitch-title" data-text="YOU ARE EXTRAORDINARY ✨">YOU ARE EXTRAORDINARY ✨</h1>
+            <p class="tagline">A sanctuary of positivity created just for you</p>
+            
+            <!-- UPDATED: Changed to "Special Count" -->
+            <div class="heart-section">
+                <p class="secret-text">💖 Special Count 💖</p>
+                <div class="heart-counter-box" id="heartCounter">
+                    <div class="heart-icon">❤️</div>
+                    <div class="counter-text">× <span id="clickCount">0</span></div>
+                </div>
+                <p style="margin-top: 15px; opacity: 0.8; font-size: 1rem;">Every click fills this space with more love!</p>
+            </div>
+            
+            <!-- UPDATED: Removed the specific text from the image -->
+            <div class="heart-hover-card">
+                <div class="heart-hover-card-inner">
+                    <div class="heart-hover-front">
+                        <div class="heart-hover-icon">💝</div>
+                        <p>Discover the secret within your heart</p>
+                        <p>Hover over me for a beautiful message!</p>
+                    </div>
+                    <div class="heart-hover-back">
+                        <p>Your smile is my</p>
+                        <p>favorite notification! 😊</p>
+                        <p class="heart-hover-text">Keep smiling, beautiful!</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Grid -->
+        <div class="grid">
+            <!-- Mood Tracker -->
+            <div class="card fade-in">
+                <h3 class="card-title"><i class="fas fa-smile-beam"></i> How Are You Feeling?</h3>
+                <div class="mood-tracker">
+                    <p class="mood-question">Choose how you're feeling right now</p>
+                    <div class="mood-options">
+                        <button class="mood-btn" data-mood="happy">😊</button>
+                        <button class="mood-btn" data-mood="excited">🤩</button>
+                        <button class="mood-btn" data-mood="calm">😌</button>
+                        <button class="mood-btn" data-mood="loved">🥰</button>
+                        <button class="mood-btn" data-mood="powerful">💪</button>
+                    </div>
+                    <div class="mood-response" id="moodResponse">
+                        Your mood matters! Share how you feel 💕
+                    </div>
+                </div>
+            </div>
+            
+            <!-- UPDATED: Changed from "Love Notes For You" to "Notes For You" -->
+            <div class="card fade-in">
+                <h3 class="card-title"><i class="fas fa-heart"></i> Notes For You</h3>
+                <div id="messageContainer">
+                    <div class="message-bubble">Your laughter is my favorite sound in the world 🌟</div>
+                    <div class="message-bubble">You have a magical way of making ordinary moments extraordinary ✨</div>
+                    <div class="message-bubble">Your kindness touches more hearts than you'll ever know 💖</div>
+                </div>
+                <button class="action-btn" id="newMessageBtn" style="margin-top: 20px;">
+                    <i class="fas fa-plus-circle"></i> Another Note
+                </button>
+            </div>
+            
+            <!-- Quick Game -->
+            <div class="card fade-in">
+                <h3 class="card-title"><i class="fas fa-gamepad"></i> Mini Game For Fun!!</h3>
+                <div style="text-align: center;">
+                    <p>Collect falling hearts and stars!</p>
+                    <div class="game-area" id="gameCanvas">
+                        <div style="position: absolute; top: 15px; left: 15px; font-weight: bold; font-size: 1.2rem;">Score: <span id="gameScore">0</span></div>
+                    </div>
+                    
+                    <!-- Speed Controls -->
+                    <div class="speed-controls">
+                        <span>Game Speed:</span>
+                        <button class="speed-btn" data-speed="slow">Relaxed</button>
+                        <button class="speed-btn active" data-speed="medium">Balanced</button>
+                        <button class="speed-btn" data-speed="fast">Exciting</button>
+                    </div>
+                    
+                    <div class="game-controls">
+                        <button class="action-btn" id="startGameBtn">
+                            <i class="fas fa-play-circle"></i> Start Game
+                        </button>
+                        <button class="action-btn" id="pauseGameBtn">
+                            <i class="fas fa-pause-circle"></i> Pause
+                        </button>
+                        <button class="action-btn" id="resetGameBtn">
+                            <i class="fas fa-redo-alt"></i> Restart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Daily Affirmations -->
+            <div class="card fade-in">
+                <h3 class="card-title"><i class="fas fa-magic"></i> Your Daily Affirmation</h3>
+                <div class="mood-response" id="affirmationText">
+                    I am worthy of all the love and happiness in the world.
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <button class="action-btn" id="newAffirmationBtn">
+                        <i class="fas fa-random"></i> New Affirmation
+                    </button>
+                    <button class="action-btn" id="speakAffirmationBtn">
+                        <i class="fas fa-volume-up"></i> Hear It
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Heart Click Challenge -->
+            <div class="card fade-in">
+                <h3 class="card-title"><i class="fas fa-star"></i> Heart Power Challenge</h3>
+                <div class="heart-click-section">
+                    <p>How many hearts can you collect in 10 seconds?</p>
+                    <div class="click-challenge-heart" id="clickChallengeHeart">
+                        💖
+                    </div>
+                    <div class="click-challenge-info">
+                        Hearts Collected: <span id="clickChallengeCount">0</span>
+                    </div>
+                    <div class="click-challenge-info">
+                        ✨ Magic at 8 clicks: A floral surprise blooms! ✨
+                    </div>
+                    <button class="action-btn" id="startClickChallenge">
+                        <i class="fas fa-rocket"></i> Start Challenge
+                    </button>
+                    <div id="clickTimer" style="margin-top: 15px; font-weight: bold; font-size: 1.3rem; color: var(--accent);"></div>
+                </div>
+            </div>
+            
+            <!-- Special Messages -->
+            <div class="card fade-in">
+                <h3 class="card-title"><i class="fas fa-comment-heart"></i> Just For You</h3>
+                <div style="text-align: center; padding: 25px;">
+                    <p>Click for personalized messages:</p>
+                    <div style="font-size: 3.5rem; margin: 25px 0; cursor: pointer; animation: gentleGlow 2s infinite;" id="messageHeart">
+                        💗
+                    </div>
+                    <div class="mood-response" id="heartMessage">
+                        You deserve all the beautiful moments life has to offer
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- UPDATED Celebration Button -->
+        <button class="celebration-btn" id="confettiBtn">
+            Click Here 😊
+        </button>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <h3 style="font-size: 2rem; margin-bottom: 25px; background: var(--gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 20px rgba(255, 107, 157, 0.3);">
+                You Are One Of A Kind
+            </h3>
+            <p style="font-size: 1.2rem; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; opacity: 0.9; line-height: 1.6;">
+                Remember: The world is brighter because you're in it. Your unique light touches everyone around you in ways you may never fully realize.
+            </p>
+            <div class="footer-icons">
+                <i class="fas fa-star" style="color: #ffd700; animation-delay: 0s;"></i>
+                <i class="fas fa-heart" style="color: var(--primary); animation-delay: 0.3s;"></i>
+                <i class="fas fa-sun" style="color: #ff9500; animation-delay: 0.6s;"></i>
+                <i class="fas fa-moon" style="color: var(--accent); animation-delay: 0.9s;"></i>
+                <i class="fas fa-gem" style="color: #9d4edd; animation-delay: 1.2s;"></i>
+            </div>
+            <p style="margin-top: 35px; opacity: 0.8; font-size: 1.1rem;">
+                Crafted with infinite appreciation for who you are 💖
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // ===== ENHANCED PARTICLE BACKGROUND =====
+        function createOptimizedParticles() {
+            const container = document.getElementById('particles');
+            const particleCount = 40;
+            
+            for (let i = 0; i < particleCount; i++) {
+                setTimeout(() => {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    
+                    particle.style.left = Math.random() * 100 + 'vw';
+                    particle.style.animationDuration = (Math.random() * 20 + 15) + 's';
+                    particle.style.animationDelay = Math.random() * 10 + 's';
+                    particle.style.opacity = Math.random() * 0.5 + 0.2;
+                    
+                    const colors = ['#ff6b9d', '#9d4edd', '#00bbf9', '#ffd700'];
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    particle.style.backgroundColor = color;
+                    particle.style.boxShadow = `0 0 20px ${color}`;
+                    
+                    container.appendChild(particle);
+                }, i * 100);
+            }
+        }
+        
+        // ===== ENHANCED HEART COUNTER =====
+        let clickCount = 0;
+        let clickTimer = 0;
+        
+        function initHeartCounter() {
+            const heartCounter = document.getElementById('heartCounter');
+            const countElement = document.getElementById('clickCount');
+            
+            heartCounter.addEventListener('click', function(e) {
+                e.stopPropagation();
+                handleHeartClick();
+            });
+            
+            function handleHeartClick() {
+                clickCount++;
+                countElement.textContent = clickCount;
+                
+                // Enhanced visual feedback
+                heartCounter.classList.add('bounce');
+                setTimeout(() => {
+                    heartCounter.classList.remove('bounce');
+                }, 400);
+                
+                // Create enhanced floating heart
+                createFloatingHeart('💖', '#ff6b9d');
+                
+                // Check for milestones
+                checkMilestones();
+                
+                // Click combo bonus
+                clickTimer++;
+                if (clickTimer > 3) {
+                    showBonusMessage("⚡ POWER COMBO! ⚡");
+                    createHeartsExplosion(8, ['💖', '💕', '💗']);
+                    clickTimer = 0;
+                }
+                
+                setTimeout(() => {
+                    clickTimer = Math.max(0, clickTimer - 1);
+                }, 1000);
+            }
+        }
+        
+        // ===== ENHANCED HEART CLICK CHALLENGE =====
+        let challengeClicks = 0;
+        let challengeActive = false;
+        let challengeTimeLeft = 10;
+        let challengeInterval;
+        
+        function initHeartClickChallenge() {
+            const challengeHeart = document.getElementById('clickChallengeHeart');
+            const clickCountElement = document.getElementById('clickChallengeCount');
+            const startBtn = document.getElementById('startClickChallenge');
+            const timerElement = document.getElementById('clickTimer');
+            
+            // Click on challenge heart
+            challengeHeart.addEventListener('click', function() {
+                if (!challengeActive) return;
+                
+                challengeClicks++;
+                clickCountElement.textContent = challengeClicks;
+                
+                // Enhanced heart animation
+                this.style.transform = 'scale(1.4)';
+                this.style.filter = 'drop-shadow(0 0 30px rgba(255, 107, 157, 1))';
+                
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                    this.style.filter = 'drop-shadow(0 0 20px rgba(255, 107, 157, 0.8))';
+                }, 300);
+                
+                // Create enhanced floating heart
+                createFloatingHeart('💖', getRandomHeartColor());
+                
+                // Check for 8 clicks - ENHANCED FLOWER SURPRISE!
+                if (challengeClicks === 8) {
+                    createEnhancedFlowerSurprise();
+                    showBonusMessage("🌸 MAGICAL BLOOM! You're blossoming beautifully! 🌸");
+                }
+                
+                // Score milestones
+                if (challengeClicks === 15) {
+                    showBonusMessage("🌟 PHENOMENAL! 15 clicks of pure excellence! 🌟");
+                    createHeartsExplosion(12, ['🌟', '✨', '⭐']);
+                }
+                
+                if (challengeClicks === 25) {
+                    showBonusMessage("🚀 LEGENDARY! 25 clicks - you're unstoppable! 🚀");
+                    createHeartsExplosion(18, ['🚀', '💫', '🌠']);
+                }
+            });
+            
+            // Start challenge
+            startBtn.addEventListener('click', function() {
+                if (challengeActive) return;
+                
+                challengeActive = true;
+                challengeClicks = 0;
+                challengeTimeLeft = 10;
+                clickCountElement.textContent = '0';
+                timerElement.textContent = `Time: ${challengeTimeLeft}s`;
+                timerElement.style.color = '#00ffaa';
+                
+                // Start timer
+                challengeInterval = setInterval(() => {
+                    challengeTimeLeft--;
+                    timerElement.textContent = `Time: ${challengeTimeLeft}s`;
+                    
+                    // Color change for urgency
+                    if (challengeTimeLeft <= 5) {
+                        timerElement.style.color = '#ff6b9d';
+                        timerElement.style.animation = 'pulse 0.5s infinite';
+                    }
+                    
+                    if (challengeTimeLeft <= 0) {
+                        clearInterval(challengeInterval);
+                        challengeActive = false;
+                        timerElement.textContent = "✨ Time's up! ✨";
+                        timerElement.style.animation = '';
+                        
+                        // Show result with personalized encouragement
+                        let message = "";
+                        if (challengeClicks >= 20) {
+                            message = `🏆 LEGENDARY! ${challengeClicks} hearts! You're phenomenal! 🏆`;
+                            createHeartsExplosion(25, ['🏆', '🎖️', '👑']);
+                        } else if (challengeClicks >= 10) {
+                            message = `🌟 AMAZING! ${challengeClicks} hearts! You're incredible! 🌟`;
+                            createHeartsExplosion(15, ['🌟', '✨', '💫']);
+                        } else {
+                            message = `💖 WONDERFUL! ${challengeClicks} hearts! Every click shows your spirit! 💖`;
+                            createHeartsExplosion(8, ['💖', '💕', '💓']);
+                        }
+                        
+                        showBonusMessage(message);
+                        
+                        // Special achievement for reaching 8 clicks
+                        if (challengeClicks >= 8) {
+                            setTimeout(() => {
+                                showSecretMessage("🌸 Flower Power Achievement! 🌸", "You unlocked the floral surprise! Just like flowers, you bloom in your own unique way, bringing beauty to every moment.");
+                            }, 1500);
+                        }
+                    }
+                }, 1000);
+                
+                // Dynamic heart color changes during challenge
+                const heartColors = ['#ff6b9d', '#9d4edd', '#00bbf9', '#ffd700', '#00ffaa', '#ff4d8d'];
+                let colorIndex = 0;
+                
+                const colorInterval = setInterval(() => {
+                    if (!challengeActive) {
+                        clearInterval(colorInterval);
+                        return;
+                    }
+                    challengeHeart.style.color = heartColors[colorIndex];
+                    challengeHeart.style.filter = `drop-shadow(0 0 25px ${heartColors[colorIndex]})`;
+                    colorIndex = (colorIndex + 1) % heartColors.length;
+                }, 400);
+            });
+        }
+        
+        // ===== ENHANCED FLOWER SURPRISE ANIMATION =====
+        function createEnhancedFlowerSurprise() {
+            const flowerContainer = document.createElement('div');
+            flowerContainer.className = 'flower-container';
+            
+            const flowers = ['🌸', '🌺', '🌷', '🌹', '💮', '🏵️', '🌻', '🌼', '🥀'];
+            const messages = [
+                "Just for you!",
+                "You deserve this beauty!",
+                "You're blooming beautifully!",
+                "As lovely as you are!",
+                "A garden just for your heart!",
+                "Your smile is like sunshine!",
+                "You make everything brighter!",
+                "Growing beautifully every day!",
+                "You're nature's masterpiece!"
+            ];
+            
+            // Create enhanced flowers with more animations
+            for (let i = 0; i < 25; i++) {
+                setTimeout(() => {
+                    const flower = document.createElement('div');
+                    flower.className = 'flower';
+                    flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
+                    flower.style.left = Math.random() * 100 + 'vw';
+                    flower.style.top = Math.random() * 100 + 'vh';
+                    flower.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                    flower.style.animationDelay = Math.random() * 0.8 + 's';
+                    flower.style.fontSize = (Math.random() * 30 + 40) + 'px';
+                    
+                    flowerContainer.appendChild(flower);
+                    
+                    // Add message for some flowers
+                    if (i % 4 === 0) {
+                        setTimeout(() => {
+                            showFloatingMessage(messages[Math.floor(Math.random() * messages.length)]);
+                        }, i * 120);
+                    }
+                    
+                    // Remove flower after animation
+                    setTimeout(() => {
+                        flower.remove();
+                    }, 5000);
+                }, i * 100);
+            }
+            
+            document.body.appendChild(flowerContainer);
+            
+            // Animated background color change
+            const originalBg = document.body.style.background;
+            document.body.style.transition = 'background 3s';
+            document.body.style.background = 'linear-gradient(135deg, #0f0c29 0%, #302b63 30%, #4a1e6e 70%, #ff6b9d 100%)';
+            
+            setTimeout(() => {
+                document.body.style.background = originalBg;
+            }, 4000);
+            
+            // Remove container after all flowers are gone
+            setTimeout(() => {
+                flowerContainer.remove();
+            }, 5500);
+        }
+        
+        function showFloatingMessage(text) {
+            const message = document.createElement('div');
+            message.textContent = text;
+            message.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.85));
+                color: #ff6b9d;
+                padding: 15px 30px;
+                border-radius: 25px;
+                font-weight: bold;
+                font-size: 1.4rem;
+                z-index: 10002;
+                animation: fadeIn 0.6s;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                border: 2px solid #ff6b9d;
+                text-align: center;
+                max-width: 300px;
+            `;
+            
+            document.body.appendChild(message);
+            
+            // Animate upward with rotation
+            setTimeout(() => {
+                message.style.transition = 'all 2.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                message.style.opacity = '0';
+                message.style.transform = 'translate(-50%, -150px) rotate(10deg)';
+                
+                setTimeout(() => {
+                    message.remove();
+                }, 2500);
+            }, 1500);
+        }
+        
+        function createFloatingHeart(emoji = '💖', color = '#ff6b9d') {
+            const heart = document.createElement('div');
+            heart.className = 'floating-emoji';
+            heart.innerHTML = emoji;
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.fontSize = Math.random() * 25 + 20 + 'px';
+            heart.style.animationDuration = Math.random() * 2 + 2 + 's';
+            heart.style.color = color;
+            heart.style.filter = `drop-shadow(0 0 15px ${color})`;
+            
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 3000);
+        }
+        
+        function createHeartsExplosion(count = 10, emojis = ['💖', '💕', '💗']) {
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => {
+                    const emoji = emojis[Math.floor(Math.random() * emojis.length)];
+                    createFloatingHeart(emoji, getRandomHeartColor());
+                }, i * 60);
+            }
+        }
+        
+        function getRandomHeartColor() {
+            const colors = ['#ff6b9d', '#9d4edd', '#00bbf9', '#ffd700', '#00ffaa', '#ff4d8d', '#ff9500'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+        
+        function checkMilestones() {
+            const messages = [
+                "🎯 First click! You're amazing!",
+                "🌟 Two clicks! Double the awesome!",
+                "✨ Three clicks! Triple the magic!",
+                "💫 Four clicks! Quadruple the sparkle!",
+                "🎉 FIVE! Secret love unlocked!",
+                "🌈 Six clicks! Rainbow of joy!",
+                "⭐ Seven clicks! Shining bright!",
+                "🚀 Eight clicks! Reaching stars!",
+                "🌠 Nine clicks! Almost ultimate!",
+                "💖 PERFECT TEN! You're phenomenal!"
+            ];
+            
+            if (clickCount <= 10 && clickCount > 0) {
+                showBonusMessage(messages[clickCount - 1]);
+            }
+            
+            if (clickCount === 5) {
+                createHeartsExplosion(20, ['💖', '💕', '💗', '💓', '💞']);
+                showSecretMessage("🎉 Secret Love Unlocked!", "You found the secret! Your heart is full of beautiful energy that lights up the world!");
+            }
+            
+            if (clickCount === 10) {
+                createHeartsExplosion(35, ['💖', '🌟', '✨', '🎉', '🌈']);
+                showSecretMessage("💖 Ultimate Love Achievement!", "You reached 10 clicks! Infinite love and positivity are flowing your way!");
+                startFallingCelebration('hearts');
+            }
+            
+            if (clickCount === 15) {
+                createHeartRain();
+                showSecretMessage("🌟 Infinite Amazing!", "15 clicks! You are truly spectacular and your energy is contagious!");
+                startFallingCelebration('stars');
+            }
+        }
+        
+        function createHeartRain() {
+            for (let i = 0; i < 25; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'floating-emoji';
+                    heart.innerHTML = ['💖', '💕', '💗', '💓'][Math.floor(Math.random() * 4)];
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    heart.style.animationDuration = '2.5s';
+                    heart.style.fontSize = '25px';
+                    heart.style.color = getRandomHeartColor();
+                    
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 2500);
+                }, i * 80);
+            }
+        }
+        
+        function showBonusMessage(text) {
+            const bonus = document.createElement('div');
+            bonus.textContent = text;
+            bonus.style.cssText = `
+                position: fixed;
+                top: 30px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: linear-gradient(135deg, rgba(0,0,0,0.9), rgba(30,0,40,0.9));
+                color: white;
+                padding: 15px 30px;
+                border-radius: 60px;
+                font-weight: bold;
+                font-size: 1.2rem;
+                z-index: 10001;
+                animation: fadeIn 0.4s;
+                border: 2px solid var(--primary);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 40px rgba(255,107,157,0.4);
+                text-align: center;
+                white-space: nowrap;
+            `;
+            
+            document.body.appendChild(bonus);
+            
+            setTimeout(() => {
+                bonus.style.transition = 'all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                bonus.style.opacity = '0';
+                bonus.style.transform = 'translateX(-50%) translateY(-40px) scale(0.9)';
+                setTimeout(() => {
+                    bonus.remove();
+                }, 800);
+            }, 2000);
+        }
+        
+        function showSecretMessage(title, message) {
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.95);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 10000;
+                animation: fadeIn 0.6s;
+            `;
+            
+            modal.innerHTML = `
+                <div style="
+                    background: linear-gradient(135deg, #1a1a2e, #16213e);
+                    padding: 40px;
+                    border-radius: 25px;
+                    max-width: 450px;
+                    text-align: center;
+                    border: 3px solid var(--primary);
+                    box-shadow: 0 0 60px rgba(255,107,157,0.6);
+                    position: relative;
+                    overflow: hidden;
+                ">
+                    <div style="
+                        position: absolute;
+                        top: -50%;
+                        left: -50%;
+                        width: 200%;
+                        height: 200%;
+                        background: radial-gradient(circle, rgba(255,107,157,0.1) 0%, transparent 70%);
+                        z-index: -1;
+                    "></div>
+                    <h2 style="color: var(--primary); margin-bottom: 20px; font-size: 2rem; text-shadow: 0 0 20px rgba(255,107,157,0.5);">
+                        ${title}
+                    </h2>
+                    <p style="font-size: 1.2rem; line-height: 1.6; margin-bottom: 30px;">
+                        ${message}
+                    </p>
+                    <button onclick="this.parentElement.parentElement.remove()" 
+                            style="
+                                padding: 12px 40px;
+                                background: var(--gradient);
+                                border: none;
+                                border-radius: 50px;
+                                color: white;
+                                font-size: 1.1rem;
+                                cursor: pointer;
+                                font-weight: 600;
+                                transition: all 0.3s;
+                                position: relative;
+                                overflow: hidden;
+                            "
+                            onmouseover="this.style.transform='scale(1.08)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.4)'"
+                            onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+                        ✨ Absolutely! ✨
+                    </button>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // Add some floating hearts in the background
+            for (let i = 0; i < 8; i++) {
+                setTimeout(() => {
+                    createFloatingHeart('💖', getRandomHeartColor());
+                }, i * 200);
+            }
+            
+            setTimeout(() => {
+                if (modal.parentElement) {
+                    modal.remove();
+                }
+            }, 6000);
+        }
+        
+        // ===== ENHANCED MOOD TRACKER =====
+        function initMoodTracker() {
+            const moodButtons = document.querySelectorAll('.mood-btn');
+            const moodResponse = document.getElementById('moodResponse');
+            
+            const responses = {
+                happy: "Your happiness is like sunshine - it warms everyone around you! Keep shining bright! 😊🌈",
+                excited: "Your excitement is absolutely electric! The world is your playground and every moment is an adventure waiting to happen! 🚀🎯",
+                calm: "Your calm energy is a superpower. In this busy world, your peace creates a sanctuary for yourself and others. 🍃✨",
+                loved: "As you absolutely should be! You give so much love that it naturally flows back to you in beautiful ways. 💖🌸",
+                powerful: "YES! You're unstoppable! Remember that your strength, courage, and resilience can move mountains. 💪🔥"
+            };
+            
+            moodButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    moodButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const mood = this.dataset.mood;
+                    moodResponse.textContent = responses[mood];
+                    
+                    moodResponse.style.animation = 'none';
+                    setTimeout(() => {
+                        moodResponse.style.animation = 'fadeIn 0.6s';
+                    }, 10);
+                    
+                    createEnhancedMoodEmojis(mood);
+                });
+            });
+        }
+        
+        function createEnhancedMoodEmojis(mood) {
+            const emojiMap = {
+                happy: ['😊', '🌈', '🎉', '☀️', '🌟'],
+                excited: ['🤩', '🚀', '⭐', '🎯', '⚡'],
+                calm: ['😌', '🍃', '☁️', '🌊', '🕊️'],
+                loved: ['🥰', '💖', '🌸', '💕', '💝'],
+                powerful: ['💪', '🔥', '⚡', '🏆', '👑']
+            };
+            
+            const emojis = emojiMap[mood] || ['✨', '💖', '🌟', '🎊', '💫'];
+            
+            for (let i = 0; i < 8; i++) {
+                setTimeout(() => {
+                    const emoji = document.createElement('div');
+                    emoji.className = 'floating-emoji';
+                    emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                    emoji.style.left = Math.random() * 100 + 'vw';
+                    emoji.style.animationDuration = Math.random() * 2 + 2 + 's';
+                    emoji.style.fontSize = Math.random() * 25 + 20 + 'px';
+                    emoji.style.color = getRandomHeartColor();
+                    
+                    document.body.appendChild(emoji);
+                    
+                    setTimeout(() => {
+                        emoji.remove();
+                    }, 3000);
+                }, i * 150);
+            }
+        }
+        
+        // ===== ENHANCED NOTES =====
+        function initMessages() {
+            const messages = [
+                "Your presence makes any moment better 🌟",
+                "You have a magical way of making people feel special ✨",
+                "Your smile could light up the darkest room 💖",
+                "You're growing more incredible every single day 🌱",
+                "The world needs exactly what you have to offer 🌍",
+                "Your kindness creates ripples of positivity 🌊",
+                "You're capable of amazing things beyond your imagination 🚀",
+                "Your unique perspective is a gift to everyone around you 🎁",
+                "You have a beautiful soul that shines through everything you do ✨",
+                "You're making a difference just by being authentically you 💫"
+            ];
+            
+            const container = document.getElementById('messageContainer');
+            const newMessageBtn = document.getElementById('newMessageBtn');
+            
+            newMessageBtn.addEventListener('click', function() {
+                const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+                
+                const bubble = document.createElement('div');
+                bubble.className = 'message-bubble';
+                bubble.textContent = randomMessage;
+                
+                container.appendChild(bubble);
+                
+                if (container.children.length > 5) {
+                    container.removeChild(container.children[0]);
+                }
+                
+                // Enhanced button feedback
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 200);
+                
+                // Add a little sparkle
+                createFloatingHeart('✨', '#ffd700');
+            });
+        }
+        
+        // ===== ENHANCED GAME WITH SPEED CONTROL =====
+        let gameSpeed = 2;
+        let gameActive = false;
+        let gameInterval;
+        let gameScore = 0;
+        
+        function initGame() {
+            const gameCanvas = document.getElementById('gameCanvas');
+            const startBtn = document.getElementById('startGameBtn');
+            const pauseBtn = document.getElementById('pauseGameBtn');
+            const resetBtn = document.getElementById('resetGameBtn');
+            const scoreElement = document.getElementById('gameScore');
+            const speedButtons = document.querySelectorAll('.speed-btn');
+            
+            speedButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    speedButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const speed = this.dataset.speed;
+                    switch(speed) {
+                        case 'slow': gameSpeed = 1; break;
+                        case 'medium': gameSpeed = 2; break;
+                        case 'fast': gameSpeed = 3; break;
+                    }
+                });
+            });
+            
+            function startGame() {
+                if (gameActive) return;
+                
+                gameActive = true;
+                gameScore = 0;
+                scoreElement.textContent = '0';
+                
+                gameCanvas.querySelectorAll('.game-object').forEach(obj => obj.remove());
+                
+                gameInterval = setInterval(() => {
+                    if (!gameActive) return;
+                    createEnhancedGameObject();
+                }, 1000 / gameSpeed);
+                
+                setTimeout(() => {
+                    stopGame();
+                    
+                    const gameOver = document.createElement('div');
+                    gameOver.innerHTML = `
+                        <div style="
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            background: rgba(0,0,0,0.95);
+                            padding: 30px;
+                            border-radius: 20px;
+                            text-align: center;
+                            border: 3px solid var(--primary);
+                            min-width: 250px;
+                            box-shadow: 0 0 50px rgba(255,107,157,0.5);
+                        ">
+                            <h4 style="color: var(--primary); margin-bottom: 15px; font-size: 1.5rem;">Game Complete!</h4>
+                            <p style="font-size: 1.4rem; margin-bottom: 10px;">Final Score: ${gameScore}</p>
+                            <p style="font-size: 1.1rem; margin-top: 15px;">🎉 You're a champion! 🎉</p>
+                        </div>
+                    `;
+                    gameCanvas.appendChild(gameOver);
+                    
+                    setTimeout(() => {
+                        gameOver.remove();
+                    }, 3500);
+                }, 20000);
+            }
+            
+            function stopGame() {
+                gameActive = false;
+                clearInterval(gameInterval);
+            }
+            
+            function pauseGame() {
+                gameActive = !gameActive;
+                pauseBtn.innerHTML = gameActive 
+                    ? '<i class="fas fa-pause-circle"></i> Pause'
+                    : '<i class="fas fa-play-circle"></i> Resume';
+            }
+            
+            function createEnhancedGameObject() {
+                const object = document.createElement('div');
+                object.className = 'game-object';
+                const objects = ['💖', '🌟', '🎯', '🎉', '✨', '💫', '⭐', '🌠'];
+                object.innerHTML = objects[Math.floor(Math.random() * objects.length)];
+                object.style.left = Math.random() * 85 + '%';
+                object.style.top = '0px';
+                object.style.fontSize = Math.random() * 30 + 25 + 'px';
+                object.style.color = getRandomHeartColor();
+                
+                object.addEventListener('click', function() {
+                    if (!gameActive) return;
+                    
+                    gameScore += 10;
+                    scoreElement.textContent = gameScore;
+                    
+                    if (gameScore === 20 || gameScore === 50 || gameScore === 100) {
+                        enhancedScoreCelebration(gameScore);
+                    }
+                    
+                    this.style.transform = 'scale(1.6) rotate(45deg)';
+                    this.style.opacity = '0.7';
+                    
+                    createEnhancedMiniExplosion(this.getBoundingClientRect().left + 20, this.getBoundingClientRect().top + 20, object.innerHTML);
+                    
+                    setTimeout(() => {
+                        this.remove();
+                    }, 250);
+                });
+                
+                gameCanvas.appendChild(object);
+                
+                let top = 0;
+                const fallSpeed = gameSpeed * 2.5;
+                
+                function fall() {
+                    if (!object.parentElement) return;
+                    
+                    top += fallSpeed;
+                    object.style.top = top + 'px';
+                    
+                    if (top < gameCanvas.clientHeight) {
+                        requestAnimationFrame(fall);
+                    } else {
+                        object.remove();
+                    }
+                }
+                
+                fall();
+                
+                setTimeout(() => {
+                    if (object.parentElement) {
+                        object.remove();
+                    }
+                }, 3500);
+            }
+            
+            function enhancedScoreCelebration(score) {
+                scoreElement.classList.add('score-celebration');
+                setTimeout(() => {
+                    scoreElement.classList.remove('score-celebration');
+                }, 600);
+                
+                showBonusMessage(`🎉 AMAZING! ${score} points! 🎉`);
+                
+                for (let i = 0; i < 20; i++) {
+                    setTimeout(() => {
+                        createFloatingHeart(['💖', '🌟', '🎉'][Math.floor(Math.random() * 3)], getRandomHeartColor());
+                    }, i * 40);
+                }
+            }
+            
+            function createEnhancedMiniExplosion(x, y, emoji) {
+                for (let i = 0; i < 8; i++) {
+                    setTimeout(() => {
+                        const particle = document.createElement('div');
+                        particle.innerHTML = emoji;
+                        particle.style.position = 'fixed';
+                        particle.style.left = x + 'px';
+                        particle.style.top = y + 'px';
+                        particle.style.fontSize = '15px';
+                        particle.style.zIndex = '1001';
+                        particle.style.pointerEvents = 'none';
+                        particle.style.color = getRandomHeartColor();
+                        
+                        document.body.appendChild(particle);
+                        
+                        const angle = Math.random() * Math.PI * 2;
+                        const distance = Math.random() * 40 + 20;
+                        const targetX = Math.cos(angle) * distance;
+                        const targetY = Math.sin(angle) * distance;
+                        
+                        particle.animate([
+                            { transform: 'translate(0, 0) scale(1) rotate(0deg)', opacity: 1 },
+                            { transform: `translate(${targetX}px, ${targetY}px) scale(0) rotate(180deg)`, opacity: 0 }
+                        ], {
+                            duration: 800,
+                            easing: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)'
+                        });
+                        
+                        setTimeout(() => {
+                            particle.remove();
+                        }, 800);
+                    }, i * 60);
+                }
+            }
+            
+            function resetGame() {
+                stopGame();
+                gameScore = 0;
+                scoreElement.textContent = '0';
+                gameCanvas.querySelectorAll('.game-object').forEach(obj => obj.remove());
+                pauseBtn.innerHTML = '<i class="fas fa-pause-circle"></i> Pause';
+            }
+            
+            startBtn.addEventListener('click', startGame);
+            pauseBtn.addEventListener('click', pauseGame);
+            resetBtn.addEventListener('click', resetGame);
+        }
+        
+        // ===== ENHANCED HEART MESSAGES =====
+        function initHeartMessages() {
+            const messageHeart = document.getElementById('messageHeart');
+            const heartMessage = document.getElementById('heartMessage');
+            
+            const heartMessages = [
+                "You deserve all the happiness in the universe! 💖",
+                "Your heart is a beautiful work of art! ❤️",
+                "You spread kindness like confetti! 🌸",
+                "Your soul shines with incredible light! ✨",
+                "Your compassion makes the world better! 🥰",
+                "You're filled with love that knows no bounds! 💫",
+                "Your heart glows with pure positivity! 🌟",
+                "You make hearts dance with joy! 😊",
+                "You're a beacon of hope and love! 💝",
+                "Your love transforms everything it touches! 🌍"
+            ];
+            
+            messageHeart.addEventListener('click', function() {
+                const randomMessage = heartMessages[Math.floor(Math.random() * heartMessages.length)];
+                heartMessage.textContent = randomMessage;
+                
+                this.style.transform = 'scale(1.3) rotate(15deg)';
+                this.style.filter = 'drop-shadow(0 0 30px rgba(255, 107, 157, 1))';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1) rotate(0deg)';
+                    this.style.filter = 'drop-shadow(0 0 20px rgba(255, 107, 157, 0.8))';
+                }, 400);
+                
+                this.style.color = getRandomHeartColor();
+                createFloatingHeart('💖', getRandomHeartColor());
+                createFloatingHeart('✨', '#ffd700');
+            });
+        }
+        
+        // ===== ENHANCED AFFIRMATIONS =====
+        function initAffirmations() {
+            const affirmations = [
+                "I am worthy of unconditional love, joy, and all beautiful experiences.",
+                "My potential is limitless and I am constantly evolving into my best self.",
+                "I choose to see and appreciate the beauty within myself and all around me.",
+                "I am strong, capable, resilient, and growing more each day.",
+                "My thoughts create my reality, so I fill my mind with positivity and hope.",
+                "I radiate confidence, peace, and positive energy wherever I go.",
+                "I am deeply grateful for my life and all its beautiful blessings.",
+                "I attract wonderful opportunities and meaningful experiences.",
+                "I trust in my ability to handle whatever comes my way with grace.",
+                "I am enough, just as I am, in this perfect moment."
+            ];
+            
+            const affirmationText = document.getElementById('affirmationText');
+            const newBtn = document.getElementById('newAffirmationBtn');
+            const speakBtn = document.getElementById('speakAffirmationBtn');
+            
+            function getRandomAffirmation() {
+                return affirmations[Math.floor(Math.random() * affirmations.length)];
+            }
+            
+            function updateAffirmation() {
+                affirmationText.textContent = getRandomAffirmation();
+                
+                affirmationText.style.animation = 'none';
+                setTimeout(() => {
+                    affirmationText.style.animation = 'fadeIn 0.6s';
+                }, 10);
+                
+                // Visual feedback
+                newBtn.style.transform = 'scale(1.05)';
+                setTimeout(() => {
+                    newBtn.style.transform = '';
+                }, 300);
+                
+                // Add some sparkles
+                createFloatingHeart('✨', '#ffd700');
+            }
+            
+            function speakAffirmation() {
+                const text = affirmationText.textContent;
+                if ('speechSynthesis' in window) {
+                    const speech = new SpeechSynthesisUtterance(text);
+                    speech.rate = 0.9;
+                    speech.pitch = 1.1;
+                    speech.volume = 1;
+                    window.speechSynthesis.speak(speech);
+                    
+                    speakBtn.style.transform = 'scale(1.1)';
+                    speakBtn.style.background = 'linear-gradient(135deg, var(--accent), var(--secondary))';
+                    setTimeout(() => {
+                        speakBtn.style.transform = '';
+                        speakBtn.style.background = 'linear-gradient(135deg, var(--primary), var(--secondary))';
+                    }, 500);
+                }
+            }
+            
+            newBtn.addEventListener('click', updateAffirmation);
+            speakBtn.addEventListener('click', speakAffirmation);
+            
+            updateAffirmation();
+        }
+        
+        // ===== ENHANCED FALLING CELEBRATION =====
+        function startFallingCelebration(type = 'hearts') {
+            const container = document.createElement('div');
+            container.className = 'falling-celebration';
+            
+            const items = type === 'hearts' 
+                ? ['💖', '💗', '💓', '💕', '💞', '💝', '💘'] 
+                : ['✨', '🌟', '⭐', '🌠', '🎇', '🎆', '💫'];
+            
+            for (let i = 0; i < 40; i++) {
+                setTimeout(() => {
+                    const item = document.createElement('div');
+                    item.className = 'falling-item';
+                    item.innerHTML = items[Math.floor(Math.random() * items.length)];
+                    item.style.left = Math.random() * 100 + 'vw';
+                    item.style.animationDuration = Math.random() * 4 + 3 + 's';
+                    item.style.fontSize = Math.random() * 40 + 30 + 'px';
+                    item.style.opacity = Math.random() * 0.8 + 0.3;
+                    item.style.color = getRandomHeartColor();
+                    
+                    container.appendChild(item);
+                    
+                    setTimeout(() => {
+                        item.remove();
+                    }, 7000);
+                }, i * 80);
+            }
+            
+            document.body.appendChild(container);
+            
+            setTimeout(() => {
+                container.remove();
+            }, 7500);
+        }
+        
+        // ===== UPDATED CONFETTI CELEBRATION =====
+        function initCelebration() {
+            const confettiBtn = document.getElementById('confettiBtn');
+            
+            confettiBtn.addEventListener('click', function() {
+                this.style.transform = 'scale(0.97)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 200);
+                
+                startFallingCelebration('stars');
+                launchEnhancedConfetti();
+                
+                // UPDATED: Changed message to "You Look pretty when you smile!! Like This Mam!!"
+                showEnhancedCelebration("You Look pretty when you smile!! Like This Mam!! 😊");
+            });
+        }
+        
+        function launchEnhancedConfetti() {
+            const colors = ['#ff6b9d', '#9d4edd', '#00bbf9', '#ffd700', '#00ffaa'];
+            const emojis = ['😊', '✨', '🌟', '🎊', '💖', '🎈', '🎁', '🏆'];
+            
+            for (let i = 0; i < 80; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'floating-emoji';
+                    confetti.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
+                    confetti.style.fontSize = Math.random() * 30 + 20 + 'px';
+                    confetti.style.color = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.filter = `drop-shadow(0 0 15px ${colors[Math.floor(Math.random() * colors.length)]})`;
+                    
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, 4000);
+                }, i * 40);
+            }
+        }
+        
+        // UPDATED: Modified to accept custom message
+        function showEnhancedCelebration(customMessage = "YOU'RE ABSOLUTELY INCREDIBLE! 🎉") {
+            const messages = [
+                customMessage,
+                "Your smile brightens everything! 😊",
+                "You're absolutely beautiful inside and out! 💖",
+                "That smile is your superpower! ✨",
+                "Keep smiling, it suits you perfectly! 🌟"
+            ];
+            
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            
+            const celebration = document.createElement('div');
+            celebration.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 3rem;
+                font-weight: bold;
+                background: var(--gradient);
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                z-index: 10001;
+                pointer-events: none;
+                text-align: center;
+                text-shadow: 0 0 30px rgba(255,255,255,0.7);
+                animation: fadeIn 0.6s;
+                padding: 20px;
+                border-radius: 20px;
+                background-color: rgba(0,0,0,0.7);
+                backdrop-filter: blur(10px);
+                border: 3px solid transparent;
+                border-image: var(--gradient) 1;
+                max-width: 90%;
+                word-wrap: break-word;
+            `;
+            celebration.textContent = randomMessage;
+            
+            document.body.appendChild(celebration);
+            
+            setTimeout(() => {
+                celebration.style.transition = 'all 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                celebration.style.opacity = '0';
+                celebration.style.transform = 'translate(-50%, -50%) scale(1.8)';
+                celebration.style.filter = 'blur(20px)';
+                
+                setTimeout(() => {
+                    celebration.remove();
+                }, 1200);
+            }, 2500);
+        }
+        
+        // ===== INITIALIZE EVERYTHING =====
+        document.addEventListener('DOMContentLoaded', function() {
+            createOptimizedParticles();
+            initHeartCounter();
+            initHeartClickChallenge();
+            initMoodTracker();
+            initMessages();
+            initGame();
+            initHeartMessages();
+            initAffirmations();
+            initCelebration();
+            
+            // Enhanced fade-in for all cards
+            setTimeout(() => {
+                document.querySelectorAll('.fade-in').forEach(el => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                });
+            }, 500);
+            
+            // Random floating emojis in background
+            setInterval(() => {
+                if (Math.random() > 0.7) {
+                    createRandomFloatingEmoji();
+                }
+            }, 3500);
+        });
+        
+        function createRandomFloatingEmoji() {
+            const emojis = ['✨', '🌟', '💖', '🌸', '🎉', '💫', '⭐', '🌠'];
+            const emoji = document.createElement('div');
+            emoji.className = 'floating-emoji';
+            emoji.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+            emoji.style.left = Math.random() * 100 + 'vw';
+            emoji.style.animationDuration = Math.random() * 3 + 2 + 's';
+            emoji.style.fontSize = Math.random() * 25 + 15 + 'px';
+            emoji.style.color = getRandomHeartColor();
+            
+            document.body.appendChild(emoji);
+            
+            setTimeout(() => {
+                emoji.remove();
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
